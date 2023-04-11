@@ -24,8 +24,11 @@ raise SystemError("You did not read the instructions!")
 
 conn_error = False
 
+# Attempts to create a connection to Oracle.
 try:
     # Enable "Thick Mode" to allow connection to Oracle 11g
+    # The lib_dir parameter tells Python where it can find the Oracle Client Library
+    #   for running in "thick" mode.
     oracledb.init_oracle_client(lib_dir="instantclient_19_18")
     conn_oracle = oracledb.connect(user=ORACLE_USER,password=ORACLE_PASSWORD,host=ORACLE_HOST,port=ORACLE_PORT,service_name=ORACLE_SID)
     print("Oracle connected OK.")
@@ -33,6 +36,7 @@ except Exception as e:
     print(f"Exception connecting to Oracle: {e}")
     conn_error = True
 
+# Attempts to create a connection to SQL Server.
 try:
     conn_mssql = pymssql.connect(server=MSSQL_HOST, user=MSSQL_USER, password=MSSQL_PASSWORD, port=MSSQL_PORT, database=MSSQL_DB)
     print("MSSQL connected OK.")
@@ -61,9 +65,6 @@ m_cursor = conn_mssql.cursor()
 
 print("MSSQL: select S#, SNAME from S:")
 m_cursor.execute("select S#, SNAME from S")
-row = m_cursor.fetchone()
-while row:
+for row in m_cursor.fetchall():
     print(row)
-    row = m_cursor.fetchone()
 print()
-

@@ -33,7 +33,12 @@ Finally, **run these commands** to setup the virtual environment and download th
 
 ### Oracle Instant Client
 
-Since our servers are running Oracle 11g, you need to use [Oracle Instant Client](https://download.oracle.com/otn_software/nt/instantclient/1918000/instantclient-basiclite-windows.x64-19.18.0.0.0dbru.zip) to connect to the servers. 
+Since our servers are running Oracle 11g, you need to use **Oracle Instant Client** to connect to the servers. 
+
+**Download Oracle Instant Client using these links:**
+
+- [64-bit version]((https://download.oracle.com/otn_software/nt/instantclient/1918000/instantclient-basiclite-windows.x64-19.18.0.0.0dbru.zip)) - Try this version first - it's the one you most likely need.
+- [32-bit version](https://download.oracle.com/otn_software/nt/instantclient/1918000/instantclient-basiclite-nt-19.18.0.0.0dbru.zip) - Use this if you get an error stating that there is no 32-bit client available.
 
 Download the above link and open the ZIP file. You will see one folder named `instantclient_19_18` inside the ZIP file. **Extract this folder to the place where you extracted the source code.** Do not copy the files out of the folder - leave the folder intact!
 

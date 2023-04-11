@@ -4,18 +4,18 @@ import pymssql
 # BEFORE YOU RUN THE PROGRAM, you must CHANGE this information 
 # to match the required information for your Oracle server!
 ORACLE_HOST = "your_server.campus-quest.com"
-ORACLE_PORT = 1521 # your port here
-ORACLE_USER = "database_name_goes_here"
+ORACLE_PORT = 1521 # your port here!
+ORACLE_USER = "SP" # you can change this to another DB.
 ORACLE_PASSWORD = "database_password_goes_here"
 ORACLE_SID = 'xe' # this can be left alone
 
 # BEFORE YOU RUN THE PROGRAM, you must CHANGE this information 
 # to match the required information for your Oracle server!
 MSSQL_HOST = "your_server.campus-quest.com"
-MSSQL_PORT = 1433
+MSSQL_PORT = 1433 # your port here!
 MSSQL_USER = "username_goes_here"
 MSSQL_PASSWORD = "password_goes_here"
-MSSQL_DB = "database_goes_here"
+MSSQL_DB = "SP" # you can change this to another DB.
 
 # BEFORE YOU RUN THE PROGRAM, you must COMMENT OUT OR REMOVE
 # this line! Only do this after you have updated the above

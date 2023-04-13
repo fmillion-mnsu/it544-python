@@ -1,3 +1,5 @@
+> If you're looking for documentation on **accessing Oracle from SQL Server**, see the [Polybase documentation](POLYBASE.md) in this repository.
+
 # Accessing Oracle Database and Microsoft SQL Server from Python
 
 This code will show you how you can access both Oracle Database and MS SQL from Python. It will demonstrate running a few queries as well as interacting with both databases simultaneously.

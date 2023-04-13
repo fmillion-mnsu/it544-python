@@ -65,15 +65,13 @@ To create the database master key, right-click on the database you will work wit
 
 ![Image showing the SP database selected in the drop-down selector at the top of a query window.](images/azuredatastudio_database_selected.png)
 
-The query to create a database master key is as follows (change `your password` with a unique password - and make sure you make a note of the password!):
+The query to create a database master key is as follows. **Change `your password` with a unique password** - and make sure you make a note of the password!):
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '(your password)'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'your password'
 
-If you already have a master key on your database and it is locked, you can unlock it for use by running this query:
-
-    OPEN MASTER KEY DECRYPTION BY PASSWORD = '(your password)'
-
-Note that you can run this query in SQL Server Management Studio as well - you won't need to keep using Azure Data Studio for your work in the future. ADS simply makes creating the linked tables much easier.
+> If you **already have a master key** on your database and it is locked, you can unlock it for use by running this query:
+>
+> `OPEN MASTER KEY DECRYPTION BY PASSWORD = 'your password'`
 
 ## Creating a database-scoped credential
 
@@ -83,8 +81,9 @@ You can give each credential you create a name. This allows you to store multipl
 
 To add a credential, enter and execute this query. **Replace `credential_identifier` with a unique valid identifier** (you'll use it later) and **change `oracle_username` and `oracle_password` to match your server**:
 
-    CREATE DATABASE SCOPED CREDENTIAL credential_identifier
-        WITH IDENTITY = 'oracle_username', SECRET = 'oracle_password'
+    CREATE DATABASE SCOPED CREDENTIAL credential_identifier WITH 
+        IDENTITY = 'oracle_username', 
+        SECRET = 'oracle_password'
 
 ## Creating the Oracle database connection
 
@@ -115,7 +114,7 @@ Follow these steps to create your virtual tables:
 
 1. Enter `xe` in the SID field. Also note that you don't need to select the credential, since it was defined as part of the data source. You should then be able to click Next.
 
-![Image showing the data source connection fields filled in.](images/azuredatastudio_ct_step3)
+![Image showing the data source connection fields filled in.](images/azuredatastudio_ct_step3.png)
 
 1. Open the `xe` item, then open the `Tables` item. It will take a few seconds to populate, and you should then see a list of all tables on the database server. (Note that you will also see tables for other users that you won't have access to - make sure you look for the tables beginning with your database name.) For example, in this screenshot we are selecting to add an external table for all three `SP` tables.
 

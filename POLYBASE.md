@@ -30,15 +30,15 @@ After you install Azure Data Studio, it's a good idea to check for updates using
 
 Another step you need to take is to install the **Data Virtualization Extensions**. This extension allows you to automate the generating of create scripts for the remote tables. (Otherwise, you need to manually write `CREATE EXTERNAL TABLE` scripts and exactly match the field names and compatible types yourself.) This is also part of why we are using Azure Data Studio - this functionality does not exist in SQL Server Management Studio at this time.
 
-To install the extension, click the Extensions icon (![image of Extensions icon](images/ads_extensions_icon.png)). Once in the Extensions manager, type `data virtualization` into the search box. One result should appear - click the `Install` button to install the extension. You can then return to the home screen by clicking the Home icon (![image of Home icon](images/ads_home_icon.png)).
+To install the extension, click the Extensions icon (![image of Extensions icon](images/azuredatastudio_extensions_icon.png)). Once in the Extensions manager, type `data virtualization` into the search box. One result should appear - click the `Install` button to install the extension. You can then return to the home screen by clicking the Home icon (![image of Home icon](images/azuredatastudio_home_icon.png)).
 
 ## Connecting to SQL Server using Azure Data Studio
 
-To setup a connection to your SQL Server, you can either click the **Create A Connection** option in the Welcome window, or you can click the New Connection icon (![image of New Connection icon](images/ads_new_connection_icon.png)). 
+To setup a connection to your SQL Server, you can either click the **Create A Connection** option in the Welcome window, or you can click the New Connection icon (![image of New Connection icon](images/azuredatastudio_new_connection_icon.png)). 
 
 The New Connection window will appear. Fill in the fields as follows:
 
-![Image of partially filled New Connection window. Details on the fields are listed in the text following this image.](images/ads_new_connection.png)
+![Image of partially filled New Connection window. Details on the fields are listed in the text following this image.](images/azuredatastudio_new_connection.png)
 
 - **Connection Type**: Microsoft SQL Server.
 - **Server**: The address of your server, including the port number separated by a comma. For example: `myserver.campus-quest.com,20200` (note: that's just an example - use *your* group's server!)
@@ -51,7 +51,7 @@ The New Connection window will appear. Fill in the fields as follows:
 
 Finally, click the Connect button to connect to the server. If all is successful you will see a summary screen for your server pop up!
 
-![Image of server welcome screen showing a successful connection.](images/ads_server_welcome.png)
+![Image of server welcome screen showing a successful connection.](images/azuredatastudio_server_welcome.png)
 
 You've now connected to SQL Server with Azure Data Studio! You will notice that some aspects of this application look familiar to SQL Server Management Studio. However, the *Data Virtualization* extension adds some critical functionality for our use case.
 
@@ -63,7 +63,7 @@ Each database you intend to connect to a remote table needs a master key. You on
 
 To create the database master key, right-click on the database you will work with and choose `New Query`. This will open an editor window that you can type a query into. You should make sure you are running queries against the correct database by checking the database shown in the drop-down list at the top of the query window.
 
-![Image showing the SP database selected in the drop-down selector at the top of a query window.](images/ads_database_selected.png)
+![Image showing the SP database selected in the drop-down selector at the top of a query window.](images/azuredatastudio_database_selected.png)
 
 The query to create a database master key is as follows (change `your password` with a unique password - and make sure you make a note of the password!):
 
@@ -104,25 +104,25 @@ Follow these steps to create your virtual tables:
 
 1. Right-click the database you are working with in the Explorer view and choose `Data Virtualization`.
 
-    ![Image showing the Data Virtualization option highlighted after right-clicking on the SP database.](images/ads_ct_step1.png)
+    ![Image showing the Data Virtualization option highlighted after right-clicking on the SP database.](images/azuredatastudio_ct_step1.png)
 
 1. Select **Oracle** as the data source type in the first screen.
 
-    ![Image showing Oracle selected on the start screen for the Data Virtualization wizard.](images/ads_ct_step2.png)
+    ![Image showing Oracle selected on the start screen for the Data Virtualization wizard.](images/azuredatastudio_ct_step2.png)
 
 1. On the next screen, click on the `External Data Source Name` field and a pop-down should appear. You should be able to select the external data source you created above.
 
 1. Enter `xe` in the SID field. Also note that you don't need to select the credential, since it was defined as part of the data source. You should then be able to click Next.
 
-![Image showing the data source connection fields filled in.](images/ads_ct_step3)
+![Image showing the data source connection fields filled in.](images/azuredatastudio_ct_step3)
 
 1. Open the `xe` item, then open the `Tables` item. It will take a few seconds to populate, and you should then see a list of all tables on the database server. (Note that you will also see tables for other users that you won't have access to - make sure you look for the tables beginning with your database name.) For example, in this screenshot we are selecting to add an external table for all three `SP` tables.
 
-![Image showing the three SP tables selected in the listing.](images/ads_ct_step4.png)
+![Image showing the three SP tables selected in the listing.](images/azuredatastudio_ct_step4.png)
 
 1. Finally, click Next, and then click Create (or alternatively click Generate Script if you want to see how the external tables are actually created.)
 
 1. If all was successful, you should get a message indicating that the data virtualization wizard succeeded - congratulations! You can now check the tables in the database and you'll see the external tables listed as if they were local tables!
 
-![Image showing three external tables under Tables in the explorer list](images/ads_ct_step5_success.png)
+![Image showing three external tables under Tables in the explorer list](images/azuredatastudio_ct_step5_success.png)
 

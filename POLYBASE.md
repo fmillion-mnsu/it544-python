@@ -67,7 +67,7 @@ To create the database master key, right-click on the database you will work wit
 
 The query to create a database master key is as follows (change `your password` with a unique password - and make sure you make a note of the password!):
 
-    CREATE MASTER KEY ENCRYPTED BY PASSWORD = '(your password)'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '(your password)'
 
 If you already have a master key on your database and it is locked, you can unlock it for use by running this query:
 
@@ -92,9 +92,10 @@ Azure Data Studio's Virtualization wizard normally lets you specify the connecti
 
 The query is as follows. Replace `data_source_name` with another unique identifier that you'll use later, and replace `oracle_host` and `oracle_port` with the correct values. Finally, replace `credential_identifier` with the same identifier you used in the `CREATE DATABASE SCOPED CREDENTIAL` query.
 
-    CREATE EXTERNAL DATA SOURCE (data_source_name)
-        WITH LOCATION = 'oracle://oracle_host:oracle_port',
+    CREATE EXTERNAL DATA SOURCE (data_source_name) WITH ( 
+        LOCATION = 'oracle://oracle_host:oracle_port',
         CREDENTIAL = credential_identifier
+    )
 
 Once you have run these two queries, you're ready to use the wizard to create linked tables!
 

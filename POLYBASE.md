@@ -81,7 +81,7 @@ A database-scoped credential is a login credential that is stored within a speci
 
 You can give each credential you create a name. This allows you to store multiple credentials in the database for different linked servers and tables. 
 
-To add a credential, enter and execute this query, replacing `credential_identifier` to a unique valid identifier (you'll use it later) and changing `oracle_username` and `oracle_password` as appropriate:
+To add a credential, enter and execute this query. **Replace `credential_identifier` with a unique valid identifier** (you'll use it later) and **change `oracle_username` and `oracle_password` to match your server**:
 
     CREATE DATABASE SCOPED CREDENTIAL credential_identifier
         WITH IDENTITY = 'oracle_username', SECRET = 'oracle_password'
@@ -90,9 +90,9 @@ To add a credential, enter and execute this query, replacing `credential_identif
 
 Azure Data Studio's Virtualization wizard normally lets you specify the connection details within the wizard, but there is a bug that prevents this from working properly when connecting to Oracle 11g servers. So to help things along, we will manually create the Oracle database connection ourselves using a query.
 
-The query is as follows. Replace `data_source_name` with another unique identifier that you'll use later, and replace `oracle_host` and `oracle_port` with the correct values. Finally, replace `credential_identifier` with the same identifier you used in the `CREATE DATABASE SCOPED CREDENTIAL` query.
+The query is as follows. **Replace `data_source_name` with another unique identifier** that you'll use later, and **replace `oracle_host` and `oracle_port` with the correct values**. Finally, **replace `credential_identifier` with the same identifier you used** in the `CREATE DATABASE SCOPED CREDENTIAL` query.
 
-    CREATE EXTERNAL DATA SOURCE (data_source_name) WITH ( 
+    CREATE EXTERNAL DATA SOURCE data_source_name WITH ( 
         LOCATION = 'oracle://oracle_host:oracle_port',
         CREDENTIAL = credential_identifier
     )

@@ -14,16 +14,6 @@ The easiest way to generate the external tables is by using [Azure Data Studio](
 1. Finally, [use the Data Virtualization wizard](#creating-the-virtual-tables-using-the-virtualization-wizard) to auto-generate linked tables in SQL Server.
 1. You're now ready to write queries that make use of the external Oracle tables - you can use them just as if they were local tables in your database!
 
-If you login to your SQL server with SSMS, you will now see the external tables listed under `External Tables`:
-
-![Image showing External Tables in SSMS](images/ssms_ext_tables.png)
-
-You can now run queries directly against the Oracle tables. The Oracle tables will be generated in a *namespace* in your SQL Server database which is the same name as the remote database in Oracle - so, for the `SP` database, the tables will appear in the `SP` namespace. You should include the namespace in your queries if you have similarly named tables in the default (`dbo`) namespace.
-
-![Image showing a query run against an external table in SSMS.](images/ssms_success_query.png)
-
-Below are the specifics for each step of the process:
-
 ## Preparing Azure Data Studio for use
 
 After you install Azure Data Studio, it's a good idea to check for updates using the *Check For Updates* option under the *Help* menu in Azure Data Studio.
@@ -126,3 +116,14 @@ Follow these steps to create your virtual tables:
 
 ![Image showing three external tables under Tables in the explorer list](images/azuredatastudio_ct_step5_success.png)
 
+## Accessing the linked tables from SSMS
+
+If you login to your SQL server with SSMS, you will now see the external tables listed under `External Tables`:
+
+![Image showing External Tables in SSMS](images/ssms_ext_tables.png)
+
+The linked tables work just like SQL Server tables. You can now run queries directly against the Oracle tables. The Oracle tables will be generated in a *namespace* in your SQL Server database which is the same name as the remote database in Oracle - so, for the `SP` database, the tables will appear in the `SP` namespace. You should include the namespace in your queries if you have similarly named tables in the default (`dbo`) namespace.
+
+![Image showing a query run against an external table in SSMS.](images/ssms_success_query.png)
+
+Below are the specifics for each step of the process:

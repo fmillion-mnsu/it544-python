@@ -32,7 +32,7 @@ Creating a user is a two-step process. First, you create a **login** on the serv
 
 5. You can now click OK to create the new login.
 
-    > **Note**: The **Server Roles** page is where you would go if you wanted to give your user equivalent access to the `sa` account.
+    > **Note**: The **Server Roles** page is where you would go if you wanted to give your login access to certain server-wide roles, such as equivalent access to the `sa` account.
 
 Now that you have created a login, you must create a user within the database you want to give the user access to. 
 
@@ -58,7 +58,7 @@ A database user is an object in a database that links a server login to a user i
 7. Switch to the **Membership** page on the left of the window.
 8. Assign privileges to the user account:
     * `db_owner` to give the user full access to the entire database - the user can do anything `sa` can do within this one database.
-    * `db_datareader` and `db_datawriter` to give the user read (`SELECT`) and write (`INSERT`/`DELETE`/etc) access to tables in the database, respectively. The user cannot run DDL queries (such as `CREATE TABLE``, `DROP FOREIGN KEY``...).
+    * `db_datareader` and `db_datawriter` to give the user read (`SELECT`) and write (`INSERT`/`DELETE`/etc) access to tables in the database, respectively. The user cannot run DDL queries (such as `CREATE TABLE`, `DROP FOREIGN KEY`...).
     * `db_ddladmin` to give the user the ability to run DDL statements
     * `db_securityadmin` to allow the user to create or delete new user accounts, reset passwords and so on
     * `db_accessadmin` and `db_backupadmin` are various presets that give the user access to run backups

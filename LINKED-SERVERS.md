@@ -1,4 +1,4 @@
-# Using Polybase to access Oracle Database from SQL Server
+# Creating Linked Servers between Microsoft SQL Server instances
 
 A [linked server](https://learn.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine) allows you to treat the resources on another SQL Server as if they are on your own local server. When linking two Microsoft SQL Servers together, you can perform queries across the server's databases and tables, update data on the remote server, execute stored procedures and create views that use data on the remote server, and so on. Essentially, the remote server appears as a new namespace on your server that you can directly interact with.
 

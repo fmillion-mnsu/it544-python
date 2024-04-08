@@ -1,4 +1,4 @@
-> If you're looking for documentation on **accessing Oracle from SQL Server**, see the [Polybase documentation](POLYBASE.md) in this repository.
+> If you're looking for documentation on **accessing Oracle from SQL Server**, see the [Polybase documentation](LINKED-ORACLE-POLYBASE.md) in this repository.
 
 > If you're looking for documentation on **setting up linked servers between two Microsoft SQL Servers**, see the [Linked Server documentation](LINKED-SERVERS.md) in this repository.
 
